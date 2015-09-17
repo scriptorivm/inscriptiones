@@ -41,7 +41,7 @@
 
 	map.addLayer(osm);
 
-	$.getJSON("https://cdn.rawgit.com/scriptorivm/pompeii/master/geojson/domi.geojson", function(data){
+	$.getJSON("https://cdn.rawgit.com/scriptorivm/pompeii/master/geojson/domi.pseudomercator.geojson", function(data){
 
 		Papa.parse("inscriptiones.csv", {
 			download: true,
