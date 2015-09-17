@@ -51,7 +51,7 @@
 					for (var j in data.features){
 						if(iscrs.data[i]["ID DOMUS"]== data.features[j].properties["N2"]){
 							var marker = L.marker(data.features[j].geometry.coordinates[0][0][0].reverse()).addTo(map);
-							marker.bindPopup("<h2>"+iscrs.data[i]["Testo originario"]+"</h2><div>"+iscrs.data[i]["Descrizione"]+"</div>")
+							marker.bindPopup("<div><h2>"+iscrs.data[i]["Testo originario"]+"</h2><div>"+iscrs.data[i]["Descrizione"]+"</div></div>")
 						}
 					}
 				}
