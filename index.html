@@ -3,9 +3,22 @@
     <title>Inscriptiones Pompeii</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    #map{
+    	height: 100%;
+    }
+
+    #texts{
+    	font-family:font-family: 'Slabo 27px', serif;
+    	font-size:20px;
+    	color: red;
+    }
+    </style>
   </head>
   <body>
     <div id="map"></div>
+    <div id="texts">Inscriptiones in Pompeii</div>
     <script>
       var map = L.map('map').setView([40.75, 14.48], 13);
 
