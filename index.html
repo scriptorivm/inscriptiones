@@ -5,6 +5,7 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
     <style type="text/css">
     body{
     	margin:0;
@@ -39,7 +40,6 @@
 
 	map.addLayer(osm);
 
-	$.getJSON("")
 
 	Papa.parse("inscriptiones.csv", {
 		download: true,
@@ -48,6 +48,7 @@
 			console.log(results);
 		}
 	});
+var hash = L.hash(map);
 
 
     </script>
