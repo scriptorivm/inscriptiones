@@ -3,6 +3,7 @@
     <title>Inscriptiones Pompeii</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <style type="text/css">
     #map{
@@ -20,7 +21,7 @@
     <div id="map"></div>
     <div id="texts">Inscriptiones in Pompeii</div>
     <script>
-      var map = L.map('map').setView([40.75, 14.48], 13);
+    var map = L.map('map').setView([40.75, 14.48], 13);
 
 	// create the tile layer with correct attribution
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -28,6 +29,13 @@
 	var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 12, attribution: osmAttrib});		
 
 	map.addLayer(osm);
+
+	Papa.parse("inscriptiones.csv", {
+		download: true,
+		complete: function(results) {
+			console.log(results);
+		}
+	});
     </script>
   </body>
 </html>
