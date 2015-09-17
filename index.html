@@ -6,11 +6,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <style type="text/css">
+    body{
+    	margin:0;
+    }
     #map{
     	height: 100%;
     }
 
     #texts{
+    	position: absolute;
+    	top: 10px;
+    	left: 10px;
+    	width: 200px;
+    	background-color: rgba(255,255,255,0.5);
+    	padding: 10px;
     	font-family:font-family: 'Slabo 27px', serif;
     	font-size:20px;
     	color: red;
@@ -30,6 +39,8 @@
 
 	map.addLayer(osm);
 
+	$.getJSON("")
+
 	Papa.parse("inscriptiones.csv", {
 		download: true,
 		header: true,
@@ -37,6 +48,8 @@
 			console.log(results);
 		}
 	});
+
+
     </script>
   </body>
 </html>
