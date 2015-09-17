@@ -32,6 +32,7 @@
 
 	Papa.parse("inscriptiones.csv", {
 		download: true,
+		header: true,
 		complete: function(results) {
 			console.log(results);
 		}
