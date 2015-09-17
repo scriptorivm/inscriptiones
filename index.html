@@ -47,7 +47,12 @@
 			download: true,
 			header: true,
 			complete: function(iscrs) {
-				console.log(inscrs);
+				for (var i in iscrs.data){
+					console.log(iscrs.data[i]);
+					for (var j in data.features){
+					
+					}
+				}
 			}
 		});
 	});
