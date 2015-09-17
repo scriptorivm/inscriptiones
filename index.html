@@ -2,6 +2,7 @@
   <head>
     <title>Inscriptiones Pompeii</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
@@ -40,14 +41,17 @@
 
 	map.addLayer(osm);
 
+	$.getJSON("https://github.com/scriptorivm/pompeii/blob/master/geojson/domi.geojson", function(data){
 
-	Papa.parse("inscriptiones.csv", {
-		download: true,
-		header: true,
-		complete: function(results) {
-			console.log(results);
-		}
+		Papa.parse("inscriptiones.csv", {
+			download: true,
+			header: true,
+			complete: function(iscrs) {
+				console.log(inscrs);
+			}
+		});
 	});
+
 var hash = L.hash(map);
 
 
