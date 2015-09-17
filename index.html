@@ -21,12 +21,12 @@
     <div id="map"></div>
     <div id="texts">Inscriptiones in Pompeii</div>
     <script>
-    var map = L.map('map').setView([40.75, 14.48], 13);
+    var map = L.map('map').setView([40.75, 14.48], 24);
 
 	// create the tile layer with correct attribution
 	var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 	var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-	var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 12, attribution: osmAttrib});		
+	var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 25, attribution: osmAttrib});		
 
 	map.addLayer(osm);
 
