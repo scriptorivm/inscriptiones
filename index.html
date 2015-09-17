@@ -48,10 +48,10 @@
 			header: true,
 			complete: function(iscrs) {
 				for (var i in iscrs.data){
-					console.log(iscrs.data[i]);
 					for (var j in data.features){
 						if(iscrs.data[i]["ID DOMUS"]== data.features[j].properties["N2"]){
 							var marker = L.marker(data.features[j].geometry.coordinates[0][0][0]).addTo(map);
+							marker.bindPopup("<h2>"+iscrs.data[i]["Testo originario"]+"</h2><div>"+iscrs.data[i]["Descrizione"]+"</div>")
 						}
 					}
 				}
