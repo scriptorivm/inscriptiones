@@ -18,12 +18,12 @@
     #texts{
     	position: absolute;
     	top: 10px;
-    	left: 50px;
+    	left: 47px;
     	width: 200px;
     	background-color: rgba(255,255,255,0.8);
     	padding: 27px;
     	font-family: 'Slabo 27px', serif;
-    	font-size:20px;
+    	font-size:27px;
     	color: red;
     }
     </style>
@@ -51,8 +51,15 @@
 					for (var j in data.features){
 						if(iscrs.data[i]["ID DOMUS"]== data.features[j].properties["N2"]){
 							var marker = L.marker(data.features[j].geometry.coordinates[0][0][0].reverse()).addTo(map);
-							//marker.bindPopup(JSON.stringify(iscrs.data[i]));
-							marker.bindPopup("<div><h2>"+iscrs.data[i]["Luogo "]+"</h2><div>"+iscrs.data[i]["Testo originario"]+"</div><img width='300' src='"+iscrs.data[i]["LINK IMMAGINE"]+"'></div>");
+							var d = iscrs.data[i];
+							var marker_content = "";
+							marker_content += "<div>";
+							marker_content += "<h2>"+iscrs.data[i]["Luogo "]+"</h2>;
+							marker_content += "<div>"+iscrs.data[i]["Testo originario"]+"</div>";
+							if (iscrs.data[i]["LINK IMMAGINE"].length > 0)
+								marker_content += "<img width='300' src='"+iscrs.data[i]["LINK IMMAGINE"]+"'>";
+							marker_content += "</div>";
+							marker.bindPopup(marker_content);
 						}
 					}
 				}
