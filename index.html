@@ -7,6 +7,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-hash/v0.2.1/leaflet-hash.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
     <style type="text/css">
     body{
     	margin:0;
@@ -40,6 +43,8 @@
 	var osm = new L.TileLayer(osmUrl, {maxZoom: 20, attribution: osmAttrib});		
 
 	map.addLayer(osm);
+	var markers = new L.MarkerClusterGroup();
+
 
 	$.getJSON("https://cdn.rawgit.com/scriptorivm/pompeii/a26d31cab5138075c42d2bb77e80b7347ae339fb/geojson/domi.geojson", function(data){
 
@@ -50,7 +55,7 @@
 				for (var i in iscrs.data){
 					for (var j in data.features){
 						if(iscrs.data[i]["ID DOMUS"]== data.features[j].properties["N2"]){
-							var marker = L.marker(data.features[j].geometry.coordinates[0][0][0].reverse()).addTo(map);
+							var marker = L.marker(data.features[j].geometry.coordinates[0][0][0].reverse()).addTo(markers);
 							var d = iscrs.data[i];
 							var marker_content = "";
 							marker_content += "<div>";
@@ -67,7 +72,8 @@
 		});
 	});
 
-var hash = L.hash(map);
+    	map.addLayer(markers);
+	var hash = L.hash(map);
 
 
     </script>
